@@ -1,0 +1,27 @@
+---
+id: {{id}}
+aliases: []
+tags:
+  - {{year}}/{{month}}
+  - ImportedNote/Twitter
+created_at: {{file_created_at}}
+updated_at: {{file_created_at}}
+---
+
+# {{year}}年{{month}}月 のツイート
+
+## {{year}}年{{month}}月 のサマリ
+
+{{stats.tweet_count}} 件のツイートがあり、そのうち {{stats.retweet_count}} 件がリツイート、{{stats.reply_count}} 件がリプライです。
+
+| 時間帯 | ツイート数 | うちリツイート数 | うちリプライ数 |
+| --: | --: | --: | --: |
+{{#each stats.tweet_count_by_hour}}
+| {{this.hour}} | {{this.tweet_count}} | {{this.retweet_count}} | {{this.reply_count}} |
+{{/each}}
+
+## {{year}}年{{month}}月 のツイート一覧
+
+{{#each tweets}}
+- {{this.created_at}}: {{this.text}}
+{{/each}}
